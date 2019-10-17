@@ -1,0 +1,151 @@
+<div class="container">
+  <div class="col-md-6 mx-auto">
+    <div [hidden]="submitted">
+      <h1>Formulaire d'inscription</h1>
+      <form (ngSubmit)="onSubmit()" #compteForm="ngForm">
+          <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="inputCiv">Civilité</label>
+                <select class="form-control" id="civilite"
+                    required
+                    [(ngModel)]="model.civilite" name="civilite"
+                    #civilite="ngModel">
+                  <option value="M">M</option>
+                  <option value="Mme">Mme</option>
+                  <option value="Mlle">Mlle</option>
+                </select>
+              </div>
+
+          <div class="form-group col-md-5 ">
+            <label for="nom">Nom</label>
+            <input type="text" class="form-control" id="nom"
+                  required
+                  [appError]="getValidationNom()" [(ngModel)]="model.nom" name="nom"
+                  #nom="ngModel">
+          </div>
+          <div class="form-group col-md-5 ">
+            <label for="prenom">Prenom</label>
+            <input type="text" class="form-control" id="prenom"
+                    required
+                    [appError]="getValidationPrenom()" [(ngModel)]="model.prenom" name="prenom"
+                    #prenom="ngModel">
+          </div>
+          <div class="form-group col-md-6 ">
+            <label for="telFixe">Téléphone Fixe</label>
+            <input type="text" class="form-control" id="telFixe"
+                    required
+                    [appError]="getValidationTelFixe()"  [(ngModel)]="model.telFixe" name="telFixe"
+                    #telFixe="ngModel"  type="number"> 
+          </div>
+          <div class="form-group col-md-6 ">
+            <label for="telPort">Téléphone Portable</label>
+            <input type="text" class="form-control" id="telPort"
+                    required
+                    [appError]="getValidationTelPort()" [(ngModel)]="model.telPort" name="telPort"
+                    #telPort="ngModel"  type="number" >
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4 ">
+              <label for="login">Login</label>
+              <input type="text" class="form-control" id="login"
+                      required
+                      [(ngModel)]="model.login" name="login"
+                      #login="ngModel">
+            </div>
+            <div class="form-group col-md-4 ">
+              <label for="motPasse1">Mot de passe</label>
+              <input type="text" class="form-control" id="motPasse1"
+                      required
+                      [appError]="getValidationMdp()" [(ngModel)]="model.motPasse1" name="motPasse1"
+                      #motPasse1="ngModel" type="password" name="password">
+            </div>
+            <div class="form-group col-md-4 ">
+              <label for="motPasse2">Confirmation mot de passe</label>
+              <input type="text" class="form-control" id="motPasse2"
+                      required
+                      [appError]="getValidationMdp()" [(ngModel)]="model.motPasse2" name="motPasse2"
+                      #motPasse2="ngModel"  type="password" name="password">
+            </div>
+          </div>
+          <div class="form-group col-md-12 ">
+            <label for="adresse">Adresse</label>
+            <input type="text" class="form-control" id="adresse"
+                    required
+                    [(ngModel)]="model.adresse" name="adresse"
+                    #adresse="ngModel">
+          </div>
+          <div class="form-group col-md-8 ">
+            <label for="pays">Nationalité</label>
+            <select class="form-control" id="pays"
+                    required
+                    [(ngModel)]="model.pays" name="pays"
+                    #pays="ngModel">
+                <option value="allemand">Allemand</option>
+                <option value="francais">Français</option>
+                <option value="anglais">Anglais</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4 ">
+            <label for="cp">CP</label>
+            <input type="text" class="form-control" id="cp"
+                    required
+                    [appError]="getValidationCP()" [(ngModel)]="model.cp" name="cp"
+                    #cp="ngModel"  type="number" maxlength="5" >
+          </div>
+        
+          <button type="submit" class="btn btn-success" [disabled]="!compteForm.form.valid">Submit</button>
+
+          
+        </div>
+      </form>
+    </div>
+
+      <div [hidden]="!submitted">
+        <h2>Informations</h2>
+        <div class="row">
+          <div class="col-xs-3  libelle">Civilité</div>
+          <div class="col-xs-9  recap">{{ model.civilite }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3  libelle">Nom</div>
+          <div class="col-xs-9  recap">{{ model.nom }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3  libelle">Prénom</div>
+          <div class="col-xs-9  recap">{{ model.prenom }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3  libelle" >Téléphone fixe</div>
+          <div class="col-xs-9  recap">{{model.telFixe | phoneNumber}}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3  libelle">Téléphone portable</div>
+          <div class="col-xs-9  recap">{{ model.telPort | phoneNumber }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3  libelle">Login</div>
+          <div class="col-xs-9  recap">{{ model.login }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3  libelle">Mot de passe</div>
+          <div class="col-xs-9  recap">{{ model.motPasse1 }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3  libelle">Adresse</div>
+          <div class="col-xs-9  recap">{{ model.adresse }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3  libelle">Pays</div>
+          <div class="col-xs-9  recap">{{ model.pays }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3  libelle">CP</div>
+          <div class="col-xs-9  recap">{{ model.cp }}</div>
+        </div>
+        <br>
+        <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+      </div>
+
+  </div>
+</div>
+
