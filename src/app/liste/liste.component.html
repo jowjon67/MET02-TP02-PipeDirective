@@ -1,0 +1,19 @@
+<app-filtre-produits (filter)="sendFiltreParNom($event)" ></app-filtre-produits>
+
+<div class="row">
+    <div class="card col-md-5 mx-auto" style="width: 18rem;"  *ngFor="let x of produits | async" >
+        <img src="{{ x.image }}" class="card-img-top" alt="..."/>
+        <div class="card-body">
+            <h5 class="card-title">{{ x.nom }}</h5>
+            <p class="card-text">
+                {{ x.prixEuro }} €<br>
+                {{ x.prixDollars }} $<br>
+                {{ x.categorie }}<br>
+                {{ x.couleur }}<br>
+            </p>
+            <a href="#" class="btn btn-primary">Acheter</a>
+        </div>
+    </div>
+</div>
+
+

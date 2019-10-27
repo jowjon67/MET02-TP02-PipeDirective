@@ -10,6 +10,10 @@ import { RecapitulatifComponent } from './recapitulatif/recapitulatif.component'
 import { FormsModule} from '@angular/forms';
 import { PhoneNumberPipe } from './phone-numbre.pipe';
 import { ErrorDirective } from './error.directive';
+import { HttpClientModule } from '@angular/common/http';
+import { ListeComponent } from './liste/liste.component';
+import { FiltreProduitsComponent } from './filtre-produits/filtre-produits.component';
+import { TetiereListeProduitsComponent } from './tetiere-liste-produits/tetiere-liste-produits.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +23,16 @@ import { ErrorDirective } from './error.directive';
     CompteComponent,
     RecapitulatifComponent,
     PhoneNumberPipe,
-    ErrorDirective
+    ErrorDirective,
+    ListeComponent,
+    FiltreProduitsComponent,
+    TetiereListeProduitsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,27 @@
+[
+    {
+        "nom":"Maillot Houston",
+        "prixEuro":"150",
+        "prixDollars":"165", 
+        "categorie":"vetement", 
+        "image":"../assets/images/maillot_houston.jpg",
+        "couleur":
+        [
+            "rouge", 
+            "noir",
+            "jaune"
+        ] 
+    },
+    {
+        "nom":"Balle nike",
+        "prixEuro":"45",
+        "prixDollars":"52", 
+        "categorie":"accesoires",
+        "image":"../assets/images/ballon.jpg",
+        "couleur":
+        [
+            "orange", 
+            "noire"
+        ] 
+    }
+]

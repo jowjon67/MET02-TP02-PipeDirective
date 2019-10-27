@@ -33,7 +33,7 @@ export class CompteComponent implements OnInit
     }
     getValidationMdp()
     {
-      if(this.model.motPasse1 == this.model.motPasse2)
+      if(this.model.motPasse1 == this.model.motPasse2 && this.model.motPasse1!="")
       {
         return true;
       }  
